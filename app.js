@@ -15,3 +15,5 @@ const connectDB = async () => {
         console.log("Failed to connect to Mongo", err);
     }
 };
+
+connectDB();
