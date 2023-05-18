@@ -1,3 +1,4 @@
+const project = require("../models/project");
 const Project = require("../models/project")
 
 exports.getProjects = async () => {
@@ -22,3 +23,10 @@ exports.createProject = async (requestBody) => {
     return await project.save();
 };
 
+exports.updateProject = async (id, projectData) => {
+    return await Project.findByIdAndUpdate(id, projectData, {
+        new: true,
+    })
+        .lean()
+        .exec();
+};
